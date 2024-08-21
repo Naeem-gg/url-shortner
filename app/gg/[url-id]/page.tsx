@@ -1,10 +1,14 @@
+import { getUrl } from '@/db/getUrl'
 import React from 'react'
 
-const page = ({params}:{params:{['url-id']:string}}) => {
+const page = async({params}:{params:{['url-id']:string}}) => {
     console.log(params['url-id'])
-  return (
+    const ogUrl = await getUrl(params['url-id'])
+
+  return (  
     <div>
-      
+      {params['url-id']}
+      <h1>{ogUrl}</h1>
     </div>
   )
 }

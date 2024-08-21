@@ -3,19 +3,24 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { handleSubmit as submitAction } from "@/app/actions";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { useState } from "react";
 
 type Inputs = {
   og_url: string
 }
 
 export function URL() {
+  const [url,setUrl] = useState("https://example.com/very-long-url-that-needs-to-be-shortened")
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => submitAction(data.og_url)
+  const onSubmit: SubmitHandler<Inputs> = async(data) => {
+  const shortedUrl = await submitAction(data.og_url)
+  setUrl("http://localhost:3000/gg/".concat(shortedUrl))
+  }
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-background">
       <div className="max-w-md w-full px-4 sm:px-6">
@@ -35,7 +40,7 @@ export function URL() {
           </form>
           <div className="bg-muted px-4 py-3 text-sm text-muted-foreground flex items-center justify-between">
             <span className="truncate">
-              https://example.com/very-long-url-that-needs-to-be-shortened
+              {url}
             </span>
             <Button variant="ghost" size="icon" className="w-6 h-6">
               <CopyIcon className="w-4 h-4" />

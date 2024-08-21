@@ -1,16 +1,10 @@
-import { getUrl } from '@/db/getUrl'
-import React from 'react'
+import { getUrl } from "@/db/getUrl";
+import { redirect } from "next/navigation";
 
-const page = async({params}:{params:{['url-id']:string}}) => {
-    console.log(params['url-id'])
-    const ogUrl = await getUrl(params['url-id'])
+const page = async ({ params }: { params: { ["url-id"]: string } }) => {
+  const ogUrl = await getUrl(params["url-id"]);
 
-  return (  
-    <div>
-      {params['url-id']}
-      <h1>{ogUrl}</h1>
-    </div>
-  )
-}
+  return redirect(ogUrl);
+};
 
-export default page
+export default page;

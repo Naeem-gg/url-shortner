@@ -34,7 +34,7 @@ export function URL() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-background">
       <div className="max-w-md w-full px-4 sm:px-6">
-        <h1 className="text-3xl font-bold text-center mb-6">URL Shortener 
+        <h1 className="text-3xl font-bold text-center mb-6">TLINKS 
 <div className="bg-blue-100 text-blue-800 font-semibold me-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-2 text-xs mt-2">By Naeem Navjivan</div>
 </h1>
         <div className="bg-card rounded-lg shadow-sm overflow-hidden">

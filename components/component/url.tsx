@@ -47,6 +47,7 @@ export function URL() {
               placeholder="Enter a long URL"
               className="flex-1 text-sm"
               {...register("og_url")}
+              required
             />
             {errors.og_url && <span>This field is required</span>}
             <Button type="submit" className="flex-shrink-0" disabled={isSubmitting}>

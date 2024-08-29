@@ -7,7 +7,7 @@ export async function getUrl(shortId: string) {
     const og_url = await db
       .select()
       .from(links)
-      .where(eq(links.shorted, shortId));
+      .where(eq(links.id, shortId));
     return og_url[0].og;
   } catch (error) {
     throw new Error(JSON.stringify(error));

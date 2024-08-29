@@ -11,12 +11,11 @@ export async function handleSubmit(url: string) {
         {
           id: nanoid(15),
           og: url,
-          shorted: nanoid(10),
         },
       ])
       .returning();
 
-    return {shorted:shortUrl[0].shorted};
+    return {shorted:shortUrl[0].id};
   } catch (error) {
       console.log(error)
     throw new Error("Something went wrong")

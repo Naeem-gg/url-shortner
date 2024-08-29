@@ -28,8 +28,8 @@ export function URL() {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const {shorted} = await submitAction(data.og_url);
-    if(process.env.NODE_ENV==="development")setUrl("http://localhost:3000/gg/".concat(shorted));
-    setUrl(`https://tlinks.vercel.app/gg/${shorted}`)
+    
+    setUrl(`${process.env.NEXT_PUBLIC_CURRENT_URL}/gg/${shorted}`)
   };
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-background">

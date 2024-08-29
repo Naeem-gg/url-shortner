@@ -9,7 +9,7 @@ export async function handleSubmit(url: string) {
       .insert(links)
       .values([
         {
-          id: nanoid(15),
+          id: nanoid(5),
           og: url,
         },
       ])
